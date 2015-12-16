@@ -1,0 +1,135 @@
+<!-- 
+
+Aplicativo que calcula o dano nos jogos de Pokemon.
+Não leva em consideração Nature, Evs, e Ivs.
+
+Autor: Bruno L. Carli
+email: brunolcarli@gmail.command
+
+Pokemon e todos os seus produtos são marcas registradas e reservadas à Nintendo e GameFreak.
+
+-->
+
+<html>
+
+	<head>
+		<title> titulo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<link type="text/css" rel="stylesheet" media="screen" href="dmgStyle.css" />
+		
+		<script language="javascript" src="dmgJs.js"></script>
+	
+	</head>
+	
+	<body id="body">
+	
+		<div id="pageBody">
+	<!-- ABRE FORMULARIO -->
+		<form id="form" action="" method="get">
+		
+		<div id="atacante">
+			<!-- LEVEL -->
+			<label for="level"> <strong>Pokemon  Lv</strong> </label>
+			<input type="text" id="level" name="level" value="" size="7" placeholder="Level"/>
+			<!-- ATAQUE -->
+			<label for="ataque"> <strong>Attack / Sp. Attack </strong></label>
+			<input type ="text" id="ataque" name="ataque" size="7" placeholder="Atk/Sp.Atk"/>
+
+			<br /> <br />
+			
+			
+			<!-- MOVE POWER -->
+			<label for="movePower"> <strong>Move Power</strong> </label>
+			<input type="text" id="movePower" name="movePower" value="" size="7" placeholder="Power"/>
+
+			
+			<!-- EFETIVIDADE -->
+			<label class="control-label" for="InputWeak"><strong>Effectiveness</strong></label>
+			<select name="InputWeak">
+			<option id="InputWeak" name="weak" value="0.25" /> 1/4<br />
+			<option id="InputWeak" name="weak" value="0.5" /> 1/2<br />
+			<option id="InputWeak" name="weak" value="2" /> 2x <br />
+			<option id="InputWeak" name="weak" value="4" /> 4x <br />
+			<option id="InputWeak" name="weak" value="1"  selected/> Neutral <br />
+			</select> 
+			
+			<br /> <br />	
+
+			
+			<!-- SET UP -->
+			<label class="control-label" for="setUp"> <strong>Set Up Atk</strong> </label>
+			<select name="setUp">
+			<option  id="setUp" name="setUp" value="4" /> +6<br />
+			<option  id="setUp" name="setUp" value="3.5" /> +5<br />
+			<option  id="setUp" name="setUp" value="3" /> +4<br />
+			<option  id="setUp" name="setUp" value="2.5" /> +3 <br />
+			<option  id="setUp" name="setUp" value="2" /> +2 <br />
+			<option  id="setUp" name="setUp" value="1.5" /> +1<br />
+			<option  id="setUp" name="setUp" value="1"  selected/> +-0<br />
+			<option  id="setUp" name="setUp" value="0.6667" /> -1 <br />
+			<option  id="setUp" name="setUp" value="0.5" /> -2 <br />
+			<option  id="setUp" name="setUp" value="0.4" /> -3 <br />
+			<option  id="setUp" name="setUp" value="0.3333" /> -4 <br />
+			<option  id="setUp" name="setUp" value="0.2857" /> -5 <br />
+			<option  id="setUp" name="setUp" value="0.25" /> -6 <br />
+			</select> 
+			
+			<br /> <br />
+			
+			<!-- STAB -->
+			<label for="stab"><strong> STAB Move </strong></label>
+			<input type="checkbox" id="stab" name="stab" value="" onclick="stabCheck();" /> <br />
+			
+		</div>
+		
+			<br /> 
+			
+		<div id="defensor">
+			<!-- DEFESA -->
+			<label for="defesa"> <strong> Defense / Sp. Defense </strong></label>
+			<input type ="text" id="defesa" name="defesa" value="" size="7" placeholder="DEf./Sp.Def"/>
+
+			<br /> <br /> 			
+
+			<!-- SETUP DAS DEFESAS -->
+			<label class="control-label" for="setUpDef"> <strong> Set Up Def </strong></label>
+			<select name="setUpDef">
+			<option  id="setUpDef" name="setUpDef" value="4" /> +6<br />
+			<option  id="setUpDef" name="setUpDef" value="3.5" /> +5<br />
+			<option  id="setUpDef" name="setUpDef" value="3" /> +4<br />
+			<option  id="setUpDef" name="setUpDef" value="2.5" /> +3 <br />
+			<option  id="setUpDef" name="setUpDef" value="2" /> +2 <br />
+			<option  id="setUpDef" name="setUpDef" value="1.5" /> +1<br />
+			<option  id="setUpDef" name="setUpDef" value="1" selected/> +-0<br />
+			<option  id="setUpDef" name="setUpDef" value="0.6667" /> -1 <br />
+			<option  id="setUpDef" name="setUpDef" value="0.5" /> -2 <br />
+			<option  id="setUpDef" name="setUpDef" value="0.4" /> -3 <br />
+			<option  id="setUpDef" name="setUpDef" value="0.3333" /> -4 <br />
+			<option  id="setUpDef" name="setUpDef" value="0.2857" /> -5 <br />
+			<option  id="setUpDef" name="setUpDef" value="0.25" /> -6 <br />
+			</select>
+			
+		</div>
+		
+			<br /> 	
+			
+			
+		<div id="screenText">
+			<label for="lastDmg"> <strong> Last result: </strong> </label>
+		</div> 
+		
+		<br /> <br />	
+			
+		<div id="botao" >
+			<!-- BOTAO-->
+			<span id="botao1" class="decision" onclick="calcular()" onmouseover="this.className = 'decisionhover'" onmouseout="this.className = 'decision'">Calculate</span>
+
+			<span id="help" class="decision" onclick="showHelp()" onmouseover="this.className = 'decisionhover'" onmouseout="this.className = 'decision'">Help Info</span>
+		</div>
+		
+		</form>
+		</div>
+	</body>
+
+</html>
